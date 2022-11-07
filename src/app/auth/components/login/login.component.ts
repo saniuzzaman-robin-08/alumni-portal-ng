@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Store} from '@ngrx/store'
+import { loginSuccess} from '../../store/auth-actions';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +11,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,
+    private store: Store) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -18,7 +21,11 @@ export class LoginComponent implements OnInit {
     })
   }
   login() {
-    console.log(this.loginForm);
+    console.log(this.loginForm.getRawValue());
+    this.store.dispatch(loginSuccess({
+      Email: this.loginForm.get('Email').value,
+      Password: this.loginForm.get('Password').value
+    }))
   }
 
 }
