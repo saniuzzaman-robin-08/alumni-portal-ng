@@ -7,6 +7,9 @@ import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { ErrorComponent } from './components/error/error.component';
 import { MaterialModule } from '../shared/modules/material/material.module';
+import { StoreModule } from '@ngrx/store';
+import { authReducer } from './store/auth-reducer';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 
 
 @NgModule({
@@ -14,12 +17,14 @@ import { MaterialModule } from '../shared/modules/material/material.module';
     RegisterComponent,
     LoginComponent,
     LogoutComponent,
-    ErrorComponent
+    ErrorComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     CommonModule,
     AuthRoutingModule,
-    MaterialModule
+    MaterialModule,
+    StoreModule.forFeature('authState', authReducer)
   ]
 })
 export class AuthModule { }
