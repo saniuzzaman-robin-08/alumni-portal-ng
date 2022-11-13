@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import {Store} from '@ngrx/store'
+import { Store } from '@ngrx/store';
 import { ActionTypes } from '../../models/action-types';
 import { forgotPassword, loginSuccess} from '../../store/auth-actions';
 
