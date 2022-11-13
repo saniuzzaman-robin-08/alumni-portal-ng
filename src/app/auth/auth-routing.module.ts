@@ -9,8 +9,8 @@ import { RegisterComponent } from './components/register/register.component';
 const routes: Routes = [
   {
     path: '',
+    pathMatch: 'full',
     redirectTo: 'login',
-    component: LoginComponent
   },
   {
     path: 'login',
@@ -34,8 +34,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '404',
-    component: ErrorComponent
+    redirectTo: '404'
   }
 ];
 
