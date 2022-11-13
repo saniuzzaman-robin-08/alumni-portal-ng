@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+.h-100-p{
+  height: 100%;
+}
+.h-fullView{
+  height: 100vh;
+}
