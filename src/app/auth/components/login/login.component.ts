@@ -17,24 +17,19 @@ export class LoginComponent implements OnInit {
     private store: Store,
     private router: Router) { }
 
-  async ngOnInit(): Promise<void> {
+  ngOnInit() {
     this.loginForm = this.formBuilder.group({
       Email: ['', Validators.required],
       Password: ['', Validators.required]
     });
-    console.log('start');
-    await this.recievePromise().then(()=> {
-      console.log('recieved data');
-    })
-    console.log('end');
   }
-  async recievePromise() {
-    return new Promise<boolean>((resolve, reject) => {
-      setTimeout(()=>{
-        resolve(true);
-      }, 2000);
-    })
-  }
+  // async recievePromise() {
+  //   return new Promise<boolean>((resolve, reject) => {
+  //     setTimeout(()=>{
+  //       resolve(true);
+  //     }, 2000);
+  //   })
+  // }
   login() {
     console.log(this.loginForm.getRawValue());
     this.store.dispatch(loginSuccess({
@@ -46,7 +41,9 @@ export class LoginComponent implements OnInit {
     this.store.dispatch(forgotPassword({
     }));
     this.router.navigate(['forgot-password']);
-    debugger;
+  }
+  register() {
+    this.router.navigate(['register']);
   }
   showPassword() {
     console.log(this.loginForm.get('Password').value);
