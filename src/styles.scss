@@ -8,6 +8,22 @@
 .h-fullView{
   height: 100vh;
 }
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Poppins, 'sans'}
+.primary-col {
+  color: #6358DC;
+}
+.bg-primary-col {
+  background-color: #6358DC;
+}
+.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background-color: #6358DC !important;
+}
+.mat-checkbox-ripple .mat-ripple-element {
+  background-color: #6358DC !important;
+}

@@ -3,11 +3,13 @@
   padding-right: 40%;
 }
 .login-bg{
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  z-index: -1;
+  background-color: #F4F4F4;
 }
 .br-12{
   border-radius: 12px;
+}
+.login-others-btn{
+  height: 52px;
+  width: 100%;
+  border-radius: 8px;
 }
