@@ -1,22 +1,25 @@
 <div class="w-full h-full flex justify-center items-center login-bg">
   <div class="hidden lg:flex w-1/2 h-full justify-center items-center">
-    <img class="w-2/3 h-2/3" src="assets/images/loginPageImage.svg">
+    <img class="w-2/3 h-2/3" src="assets/images/loginPageImage.svg" />
   </div>
-  <div class="w-full h-full lg:w-1/2 flex items-center lg:pr-20 lg:py-8 overflow-hidden">
+  <div
+    class="w-full h-full lg:w-1/2 flex items-center lg:pr-20 lg:py-8 overflow-hidden"
+  >
     <div
-      class="h-full flex flex-col justify-center px-10 py-6 lg:py-0 bg-white rounded-lg login-form w-full overflow-auto">
+      class="h-full flex flex-col justify-center px-10 py-6 lg:py-0 bg-white rounded-lg login-form w-full overflow-auto"
+    >
       <p class="text-3xl font-medium mb-1">Welcome To</p>
       <p class="primary-col text-4xl font-extrabold mb-6">Alumni Portal</p>
       <div class="login-others flex flex-col gap-y-6 mb-6">
         <button mat-raised-button class="login-others-btn">
           <span class="flex flex-row items-center justify-center">
-            <img src="assets/images/google.png" class="mr-2 h-6">
+            <img src="assets/images/google.png" class="mr-2 h-6" />
             <span>Login with Google</span>
           </span>
         </button>
         <button mat-raised-button class="login-others-btn">
           <span class="flex flex-row items-center justify-center">
-            <img src="assets/images/facebook.png" class="mr-2 h-6">
+            <img src="assets/images/facebook.png" class="mr-2 h-6" />
             <span>Login with Facebook</span>
           </span>
         </button>
@@ -30,26 +33,50 @@
         <mat-form-field appearance="outline" class="text-sm">
           <mat-label>Email</mat-label>
           <mat-icon matPrefix class="email-icon mr-4 ml-2">email</mat-icon>
-          <input matInput formControlName="Email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+          <input
+            matInput
+            formControlName="Email"
+            type="email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          />
         </mat-form-field>
         <mat-form-field appearance="outline" class="text-sm">
           <mat-label>Password</mat-label>
           <mat-icon matPrefix class="email-icon mr-4 ml-2">key</mat-icon>
-          <input matInput formControlName="Password">
-          <mat-icon matSuffix class="mr-2 cursor-pointer" (click)="showPassword()">visibility</mat-icon>
+          <input matInput formControlName="Password" />
+          <mat-icon
+            matSuffix
+            class="mr-2 cursor-pointer"
+            (click)="showPassword()"
+            >visibility</mat-icon
+          >
         </mat-form-field>
       </form>
       <div class="flex flex-row justify-between mb-6">
         <mat-checkbox class="text-sm">Remember me</mat-checkbox>
-        <span class="cursor-pointer primary-col text-sm" (click)="forgotPassword()">Forgot password?</span>
+        <span
+          class="cursor-pointer primary-col text-sm"
+          (click)="forgotPassword()"
+          >Forgot password?</span
+        >
       </div>
       <div class="w-full">
-        <button (click)="login()" class="login-others-btn bg-primary-col text-white font-semibold" mat-flat-button
-          type="submit">Login</button>
+        <button
+          (click)="login()"
+          class="login-others-btn bg-primary-col text-white font-semibold"
+          mat-flat-button
+          type="submit"
+        >
+          Login
+        </button>
       </div>
       <div class="text-sm flex flex-row gap-x-1 mt-6 justify-center">
         <span>Dont have an account?</span>
-        <span class="cursor-pointer primary-col font-semibold" (click)="register()">Register</span>
+        <span
+          class="cursor-pointer primary-col font-semibold"
+          (click)="register()"
+          >Register</span
+        >
       </div>
     </div>
   </div>
