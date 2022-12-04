@@ -5,16 +5,17 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/alumnis'
+    redirectTo: 'list',
+    pathMatch: 'full',
   },
   {
-    path: '/alumnis',
-    component: AlumniListComponent
-  }
+    path: 'list',
+    component: AlumniListComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class HomeRoutingModule { }
+export class HomeRoutingModule {}

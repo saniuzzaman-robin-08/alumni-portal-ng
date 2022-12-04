@@ -13,9 +13,9 @@ import { forgotPassword, loginSuccess } from '../../store/auth-actions';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  validUser: {
-    Email: 'saniuzzamanrobin07@gmail.com';
-    Password: '1qazZAQ!';
+  validUser = {
+    Email: 'saniuzzamanrobin07@gmail.com',
+    Password: '1qazZAQ!',
   };
   constructor(
     private _formBuilder: FormBuilder,
@@ -45,13 +45,17 @@ export class LoginComponent implements OnInit {
         Password: this.loginForm.get('Password').value,
       })
     );
-    if (value === this.validUser) {
+    if (
+      this.validUser.Email === value['Email'] &&
+      this.validUser.Password === value['Password']
+    ) {
       this._router.navigate(['alumnis']);
     } else {
-      this._alumniSnackbarService.openSnackbar(
-        'error',
-        'Wrong email or password!'
-      );
+      const errorMessage = this.loginForm.touched
+        ? 'Invalid email or password!'
+        : 'Please input Email & Password!';
+      this.loginForm.markAllAsTouched();
+      this._alumniSnackbarService.openSnackbar('error', errorMessage);
     }
   }
   forgotPassword() {

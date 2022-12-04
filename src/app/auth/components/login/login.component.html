@@ -3,10 +3,10 @@
     <img class="w-2/3 h-2/3" src="assets/images/loginPageImage.svg" />
   </div>
   <div
-    class="w-full h-full lg:w-1/2 flex items-center lg:pr-20 lg:py-8 overflow-hidden"
+    class="w-full h-full lg:w-1/2 flex items-center lg:pr-20 lg:py-6 overflow-hidden"
   >
     <div
-      class="h-full flex flex-col justify-center px-10 py-6 lg:py-0 bg-white rounded-lg login-form w-full overflow-auto"
+      class="h-full flex flex-col px-10 py-6 bg-white rounded-lg login-form w-full overflow-auto"
     >
       <p class="text-3xl font-medium mb-1">Welcome To</p>
       <p class="primary-col text-4xl font-extrabold mb-6">Alumni Portal</p>
@@ -73,6 +73,7 @@
           class="login-others-btn bg-primary-col text-white font-semibold"
           mat-flat-button
           type="submit"
+          [disabled]="loginForm && loginForm.touched && !loginForm.valid"
         >
           Login
         </button>
