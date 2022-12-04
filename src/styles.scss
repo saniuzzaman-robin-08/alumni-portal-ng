@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-.h-100-p{
+.h-100-p {
   height: 100%;
 }
-.h-fullView{
+.h-fullView {
   height: 100vh;
 }
 * {
@@ -13,17 +13,28 @@
   padding: 0;
   box-sizing: border-box;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Poppins, 'sans'}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Poppins, "sans";
+}
 .primary-col {
-  color: #6358DC;
+  color: #6358dc;
 }
 .bg-primary-col {
-  background-color: #6358DC;
+  background-color: #6358dc;
 }
 .mat-checkbox-checked.mat-accent .mat-checkbox-background {
-  background-color: #6358DC !important;
+  background-color: #6358dc !important;
 }
 .mat-checkbox-ripple .mat-ripple-element {
-  background-color: #6358DC !important;
+  background-color: #6358dc !important;
+}
+.mat-snack-bar-container {
+  padding: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
 }

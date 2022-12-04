@@ -43,12 +43,19 @@
         <mat-form-field appearance="outline" class="text-sm">
           <mat-label>Password</mat-label>
           <mat-icon matPrefix class="email-icon mr-4 ml-2">key</mat-icon>
-          <input matInput formControlName="Password" />
+          <input
+            #password
+            type="password"
+            matInput
+            formControlName="Password"
+          />
           <mat-icon
             matSuffix
             class="mr-2 cursor-pointer"
-            (click)="showPassword()"
-            >visibility</mat-icon
+            (click)="showPassword($event, password)"
+            >{{
+              password.type === "text" ? "visibility" : "visibility_off"
+            }}</mat-icon
           >
         </mat-form-field>
       </form>

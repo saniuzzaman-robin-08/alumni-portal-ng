@@ -1,3 +1,4 @@
+import { AlumniSnackbarService } from './../shared/services/alumni-snackbar.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -25,6 +26,7 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
     AuthRoutingModule,
     MaterialModule,
     StoreModule.forFeature('authState', authReducer)
-  ]
+  ],
+  providers: [AlumniSnackbarService]
 })
 export class AuthModule { }

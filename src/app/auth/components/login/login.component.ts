@@ -1,3 +1,4 @@
+import { AlumniSnackbarService } from './../../../shared/services/alumni-snackbar.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -12,14 +13,19 @@ import { forgotPassword, loginSuccess } from '../../store/auth-actions';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  validUser: {
+    Email: 'saniuzzamanrobin07@gmail.com';
+    Password: '1qazZAQ!';
+  };
   constructor(
-    private formBuilder: FormBuilder,
-    private store: Store,
-    private router: Router
+    private _formBuilder: FormBuilder,
+    private _store: Store,
+    private _router: Router,
+    private _alumniSnackbarService: AlumniSnackbarService
   ) {}
 
   ngOnInit() {
-    this.loginForm = this.formBuilder.group({
+    this.loginForm = this._formBuilder.group({
       Email: ['', Validators.required],
       Password: ['', Validators.required],
     });
@@ -32,22 +38,31 @@ export class LoginComponent implements OnInit {
   //   })
   // }
   login() {
-    console.log(this.loginForm.getRawValue());
-    this.store.dispatch(
+    const value = this.loginForm.getRawValue();
+    this._store.dispatch(
       loginSuccess({
         Email: this.loginForm.get('Email').value,
         Password: this.loginForm.get('Password').value,
       })
     );
+    if (value === this.validUser) {
+      this._router.navigate(['alumnis']);
+    } else {
+      this._alumniSnackbarService.openSnackbar(
+        'error',
+        'Wrong email or password!'
+      );
+    }
   }
   forgotPassword() {
-    this.store.dispatch(forgotPassword({}));
-    this.router.navigate(['forgot-password']);
+    this._store.dispatch(forgotPassword({}));
+    this._router.navigate(['forgot-password']);
   }
   register() {
-    this.router.navigate(['register']);
+    this._router.navigate(['register']);
   }
-  showPassword() {
-    console.log(this.loginForm.get('Password').value);
+  showPassword(event: Event, passwordInput: HTMLInputElement) {
+    passwordInput.type = passwordInput.type === 'text' ? 'password' : 'text';
+    event.stopPropagation();
   }
 }
